@@ -1,0 +1,17 @@
+{
+  "home": {
+    "brand": "lernu.cc",
+    "title": "Learn Everything",
+    "subtitle": "A hub of focused learning projects. Pick a path and start learning.",
+    "languages": "Learn Languages",
+    "languagesDesc": "AI-powered translation, dictionary, courses, and flashcards.",
+    "music": "Learn Music",
+    "musicDesc": "Ear training, real-time pitch detection, and recorder fingering.",
+    "sciences": "Learn Sciences",
+    "sciencesDesc": "Electronics exam syllabus and formula reference (offline-ready)."
+  },
+  "langSwitch": {
+    "en": "EN",
+    "zh": "中文"
+  }
+}

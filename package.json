@@ -1,0 +1,50 @@
+{
+  "name": "learn-everything",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.12.1",
+  "type": "module",
+  "license": "UNLICENSED",
+  "description": "lernu.cc root-domain portal — index and entry point to the lernu.cc learning projects.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "lint:max-lines": "tsx scripts/lint/check-file-length.ts",
+    "lint:i18n": "tsx scripts/lint/find-unused-i18n-keys.ts --check",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "prepare": "husky",
+    "preinstall": "git config --local url.\"https://github.com/GoddoNebianU/design-system\".insteadOf \"git@github.com:GoddoNebianU/design-system\" 2>/dev/null || true"
+  },
+  "dependencies": {
+    "@goddonebianu/design-system": "git+https://github.com/GoddoNebianU/design-system.git#main",
+    "lucide-react": "^1.8.0",
+    "next": "16.2.4",
+    "next-intl": "^4.9.1",
+    "react": "19.2.5",
+    "react-dom": "19.2.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.3",
+    "@types/node": "^24.12.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "16.2.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.2.0",
+    "prettier": "^3.8.3",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "tailwindcss": "^4.2.3",
+    "tsx": "^4.22.4",
+    "typescript": "~5.9.3"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint",
+    "*.{ts,tsx,css,json,md}": "prettier --check"
+  }
+}

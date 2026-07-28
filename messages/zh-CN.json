@@ -1,0 +1,17 @@
+{
+  "home": {
+    "brand": "lernu.cc",
+    "title": "学无止境",
+    "subtitle": "一系列专注的学习项目集合。选一个方向，开始学习。",
+    "languages": "语言学习",
+    "languagesDesc": "AI 翻译、词典、互动课程与单词记忆。",
+    "music": "音乐学习",
+    "musicDesc": "听音训练、实时音高检测与竖笛指法。",
+    "sciences": "理工学习",
+    "sciencesDesc": "工科考试大纲与公式手册（支持离线）。"
+  },
+  "langSwitch": {
+    "en": "EN",
+    "zh": "中文"
+  }
+}
