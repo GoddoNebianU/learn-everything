@@ -6,11 +6,11 @@ lernu.cc 根域名门户（品牌「学一切」/「Learn Everything」）。索
 
 本仓库**只是门户**：一个落地页，三张卡片指向三个子域名：
 
-| 子站     | 子域名           | 项目仓库        |
-| -------- | ---------------- | --------------- |
-| 语言学习 | `lang.lernu.cc`  | learn-languages |
-| 音乐学习 | `music.lernu.cc` | learn-music     |
-| 理工学习 | `sci.lernu.cc`   | learn-sciences  |
+| 子站   | 子域名           | 项目仓库        |
+| ------ | ---------------- | --------------- |
+| 学语言 | `lang.lernu.cc`  | learn-languages |
+| 学音乐 | `music.lernu.cc` | learn-music     |
+| 学科学 | `sci.lernu.cc`   | learn-sciences  |
 
 卡片链接是**跨子域的外部链接**（`https://lang.lernu.cc` 等），用原生 `<a>`（不是 `next/link`），同标签页导航。
 
