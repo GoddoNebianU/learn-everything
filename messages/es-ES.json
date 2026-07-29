@@ -1,0 +1,13 @@
+{
+  "home": {
+    "brand": "Aprender Todo",
+    "title": "Aprender Todo",
+    "subtitle": "Un conjunto de proyectos de aprendizaje enfocados. Elige un camino y empieza.",
+    "languages": "Aprender Idiomas",
+    "languagesDesc": "Traducción con IA, diccionario, cursos interactivos y flashcards.",
+    "music": "Aprender Música",
+    "musicDesc": "Entrenamiento auditivo, detección de tono en tiempo real y digitación de flauta.",
+    "sciences": "Aprender Ciencias",
+    "sciencesDesc": "Ciencias · programas y manual de fórmulas (disponible sin conexión)."
+  }
+}

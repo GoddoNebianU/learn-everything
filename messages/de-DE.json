@@ -1,0 +1,13 @@
+{
+  "home": {
+    "brand": "Alles Lernen",
+    "title": "Alles Lernen",
+    "subtitle": "Eine Sammlung fokussierter Lernprojekte. Wähle einen Weg und leg los.",
+    "languages": "Sprachen Lernen",
+    "languagesDesc": "KI-Übersetzung, Wörterbuch, interaktive Kurse und Lernkarten.",
+    "music": "Musik Lernen",
+    "musicDesc": "Gehörbildung, Echtzeit-Tonhöhen Erkennung und Blockflöten Griffweise.",
+    "sciences": "Wissenschaft Lernen",
+    "sciencesDesc": "Wissenschaften · Lehrpläne und Formelsammlung (offline verfügbar)."
+  }
+}

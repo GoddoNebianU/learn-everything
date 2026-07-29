@@ -1,0 +1,13 @@
+{
+  "home": {
+    "brand": "Apprendre Tout",
+    "title": "Apprendre Tout",
+    "subtitle": "Un ensemble de projets d'apprentissage ciblés. Choisissez une voie et commencez.",
+    "languages": "Apprendre les Langues",
+    "languagesDesc": "Traduction IA, dictionnaire, cours interactifs et flashcards.",
+    "music": "Apprendre la Musique",
+    "musicDesc": "Oreille musicale, détection de hauteur en temps réel et doigté de flûte.",
+    "sciences": "Apprendre les Sciences",
+    "sciencesDesc": "Sciences · programmes et formulaire (fonctionne hors ligne)."
+  }
+}

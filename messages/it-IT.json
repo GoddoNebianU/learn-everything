@@ -1,0 +1,13 @@
+{
+  "home": {
+    "brand": "Imparare Tutto",
+    "title": "Imparare Tutto",
+    "subtitle": "Una raccolta di progetti di studio mirati. Scegli un percorso e inizia.",
+    "languages": "Imparare le Lingue",
+    "languagesDesc": "Traduzione IA, dizionario, corsi interattivi e flashcard.",
+    "music": "Imparare la Musica",
+    "musicDesc": "Allenamento dell'orecchio, rilevazione del tono in tempo reale e diteggiatura del flauto.",
+    "sciences": "Imparare le Scienze",
+    "sciencesDesc": "Scienze · programmi e formulario (disponibile offline)."
+  }
+}

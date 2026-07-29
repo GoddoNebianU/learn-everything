@@ -8,23 +8,23 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://lernu.cc";
 
 export const metadata: Metadata = {
   title: {
-    default: "lernu.cc — Learn Everything",
-    template: "%s | lernu.cc",
+    default: "Learn Everything — lernu.cc",
+    template: "%s | Learn Everything",
   },
   description:
-    "lernu.cc is a hub of focused learning projects: languages, music, and sciences. Pick a path and start learning.",
+    "Learn Everything is a hub of focused learning projects: languages, music, and sciences. Pick a path and start learning.",
   metadataBase: new URL(BASE_URL),
   openGraph: {
     type: "website",
-    siteName: "lernu.cc",
-    title: "lernu.cc — Learn Everything",
+    siteName: "Learn Everything",
+    title: "Learn Everything — lernu.cc",
     description:
       "A hub of focused learning projects: languages, music, and sciences. Pick a path and start learning.",
     url: BASE_URL,
   },
   twitter: {
     card: "summary_large_image",
-    title: "lernu.cc — Learn Everything",
+    title: "Learn Everything — lernu.cc",
     description:
       "A hub of focused learning projects: languages, music, and sciences. Pick a path and start learning.",
   },

@@ -1,45 +1,55 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
-import { useTransition } from "react";
-import { Button } from "@goddonebianu/design-system/button";
-import { SUPPORTED_LOCALES } from "@/config/i18n";
-import { setLocale } from "@/actions/set-locale";
+import { useEffect, useState } from "react";
+import { useLocale } from "next-intl";
+import { Check, Languages } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@goddonebianu/design-system/dropdown-menu";
 
-const LABEL_KEYS: Record<(typeof SUPPORTED_LOCALES)[number], "en" | "zh"> = {
-  "en-US": "en",
-  "zh-CN": "zh",
-};
+const languages = [
+  { code: "en-US", label: "English" },
+  { code: "zh-CN", label: "中文" },
+  { code: "ug-CN", label: "ئۇيغۇرچە" },
+  { code: "eo", label: "Esperanto" },
+  { code: "fr-FR", label: "Français" },
+  { code: "es-ES", label: "Español" },
+  { code: "it-IT", label: "Italiano" },
+  { code: "de-DE", label: "Deutsch" },
+];
 
 export function LanguageSwitcher() {
-  const locale = useLocale() as (typeof SUPPORTED_LOCALES)[number];
-  const router = useRouter();
-  const t = useTranslations("langSwitch");
-  const [, startTransition] = useTransition();
+  const locale = useLocale();
+  const [pendingLocale, setPendingLocale] = useState<string | null>(null);
 
-  const switchTo = async (next: (typeof SUPPORTED_LOCALES)[number]) => {
-    if (next === locale) return;
-    await setLocale(next);
-    startTransition(() => {
-      router.refresh();
-    });
-  };
+  useEffect(() => {
+    if (!pendingLocale) return;
+    document.cookie = `locale=${pendingLocale}; path=/; max-age=31536000; SameSite=Lax${window.location.protocol === "https:" ? "; Secure" : ""}`;
+    window.location.reload();
+  }, [pendingLocale]);
 
   return (
-    <div className="flex items-center gap-1">
-      {SUPPORTED_LOCALES.map((code) => (
-        <Button
-          key={code}
-          variant="ghost"
-          size="sm"
-          selected={locale === code}
-          onClick={() => void switchTo(code)}
-          aria-pressed={locale === code}
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button
+          type="button"
+          className="inline-flex items-center justify-center rounded-md p-2 text-foreground transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+          aria-label="Switch language"
         >
-          {t(LABEL_KEYS[code])}
-        </Button>
-      ))}
-    </div>
+          <Languages size={20} />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-40">
+        {languages.map((lang) => (
+          <DropdownMenuItem key={lang.code} onClick={() => setPendingLocale(lang.code)}>
+            <span className="flex-1">{lang.label}</span>
+            {lang.code === locale ? <Check size={16} className="text-primary-600" /> : null}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

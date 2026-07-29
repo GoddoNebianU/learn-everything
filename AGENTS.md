@@ -1,6 +1,6 @@
-# LEARN-EVERYTHING
+# LEARN-EVERYTHING · 学一切
 
-lernu.cc 根域名门户。索引 + 介绍网站，提供进入三个学习项目（learn-languages / learn-music / learn-sciences）的入口。Next.js 16 App Router + React 19 + TypeScript + Tailwind CSS v4 + next-intl（EN/ZH，cookie-based，无 URL locale 段——同 learn-music 架构）。消费 `@goddonebianu/design-system` 做 UI 原语。部署在 Vercel，根域名 `lernu.cc`。
+lernu.cc 根域名门户（品牌「学一切」/「Learn Everything」）。索引 + 介绍网站，提供进入三个学习项目（learn-languages / learn-music / learn-sciences）的入口。Next.js 16 App Router + React 19 + TypeScript + Tailwind CSS v4 + next-intl（8 语言：en-US / zh-CN / ug-CN / eo / fr-FR / es-ES / it-IT / de-DE；cookie-based，无 URL locale 段——同 learn-music / learn-languages 架构）。消费 `@goddonebianu/design-system` 做 UI 原语。部署在 Vercel，根域名 `lernu.cc`。
 
 ## 定位
 
@@ -30,7 +30,7 @@ lernu.cc 根域名门户。索引 + 介绍网站，提供进入三个学习项�
 
 ## 技术栈
 
-Next.js 16 (App Router) · React 19 + Compiler · TypeScript · Tailwind CSS v4 · next-intl (2 语言: en-US/zh-CN) · ESLint ^9。无数据库、无认证、无 PWA、无 Server Actions（除 `set-locale` 这个唯一的 cookie 写入 action）。
+Next.js 16 (App Router) · React 19 + Compiler · TypeScript · Tailwind CSS v4 · next-intl (8 语言: en-US / zh-CN / ug-CN / eo / fr-FR / es-ES / it-IT / de-DE) · ESLint ^9。无数据库、无认证、无 PWA、无 Server Actions（语言切换走客户端 cookie + `window.location.reload()`，无 server action）。
 
 ## 目录结构
 
@@ -41,15 +41,19 @@ app/
 └── page.tsx                   # / — 门户落地页（server component，getTranslations）：hero + 3 张子站卡片
 proxy.ts                       # Cookie-based locale 检测（Accept-Language → locale cookie），Next.js 16 proxy.ts
 messages/
-├── en-US.json                 # 命名空间：home, langSwitch
-└── zh-CN.json
+├── en-US.json                 # 命名空间：home
+├── zh-CN.json
+├── ug-CN.json
+├── eo.json
+├── fr-FR.json
+├── es-ES.json
+├── it-IT.json
+└── de-DE.json
 src/
-├── actions/
-│   └── set-locale.ts          # "use server" — 写 locale cookie（LanguageSwitcher 调用）
 ├── components/
-│   └── LanguageSwitcher.tsx   # EN / 中文 切换（header 右侧）— setLocale + router.refresh
+│   └── LanguageSwitcher.tsx   # Dropdown menu (8 locales, header right) — client cookie set + window.location.reload
 ├── config/
-│   └── i18n.ts                # SUPPORTED_LOCALES (en-US, zh-CN) + DEFAULT_LOCALE
+│   └── i18n.ts                # SUPPORTED_LOCALES (8 locales) + DEFAULT_LOCALE
 └── i18n/
     └── request.ts             # getRequestConfig：读 locale cookie → import messages/<locale>.json
 scripts/lint/
@@ -66,10 +70,10 @@ scripts/lint/
 - **`@goddonebianu/design-system` 组件库（card/shadow 美学）**: 通用 UI 元素（按钮、卡片、容器、标题等）一律用包内原语，禁重写本地等价物。Subpath 导入（`@goddonebianu/design-system/card`），禁 barrel 聚合导入（`@goddonebianu/design-system` 裸导入禁止）。
 - **Card/shadow 布局**: 卡片用 `<Card variant="default" padding="lg">`（默认带 `shadow-xl`）+ hover 上浮 `hover:-translate-y-0.5 hover:shadow-primary`；header 用 `<Container>` + `shadow-sm` + `bg-card`；页面外层背景用 `bg-background-secondary`（让 card 浮起来）。
 - **子站链接用原生 `<a>`**: 卡片指向子域名（`https://lang.lernu.cc` 等），是跨站外部链接，用 `<a href>`，不用 `next/link`（`next/link` 仅用于站内导航；本站目前只有单页 `/`）。
-- **i18n（cookie-based，无 URL locale 段）**: Locale 从 `locale` cookie 解析（首次访问由 `proxy.ts` 按 Accept-Language 设置）。Client 组件 `useTranslations('Namespace')`，Server 组件 `getTranslations('Namespace')`。切换语言经 `LanguageSwitcher` → `setLocale` server action 写 cookie + `router.refresh()`。
+- **i18n（cookie-based，8 语言，无 URL locale 段）**: Locale 从 `locale` cookie 解析（首次访问由 `proxy.ts` 按 Accept-Language 检测 zh/fr/es/it/de/ug/eo 语系并设置）。Client 组件 `useTranslations('Namespace')`，Server 组件 `getTranslations('Namespace')`。切换语言经 `LanguageSwitcher` dropdown → 客户端写 `document.cookie` + `window.location.reload()`（无 server action）。
 - **Container 用法**: 内容宽度约束用 `<Container size="2xl" padding="sm">`。
 - **Tailwind CSS v4**: `app/globals.css` 用 `@import "tailwindcss"` + `@source "../node_modules/@goddonebianu/design-system/src"`（扫描包内 class）+ `@import "@goddonebianu/design-system/tokens.css"`（注入语义 token）。**不要**在 globals.css 里覆盖 body 字体/背景——让 tokens.css 的默认值生效；页面级背景由 `page.tsx` 的 `bg-background-secondary` 控制。
-- **metadata 静态导出**: `app/layout.tsx` 的 `export const metadata` 是静态的（英文 SEO 基线），`NEXT_PUBLIC_BASE_URL` 环境变量控制 `metadataBase`（默认 `https://lernu.cc`）。Locale 不影响 metadata——门户内容文案的本地化由 `page.tsx` 内的 `t()` 负责。
+- **metadata 静态导出**: `app/layout.tsx` 的 `export const metadata` 是静态的（英文 SEO 基线，品牌名「Learn Everything」），`NEXT_PUBLIC_BASE_URL` 环境变量控制 `metadataBase`（默认 `https://lernu.cc`）。Locale 不影响 metadata——门户内容文案的本地化由 `page.tsx` 内的 `t()` 负责。
 - **React Compiler** 已启用（`reactCompiler: true` in `next.config.ts`）——不要手写 `useMemo`/`useCallback`/`memo()`。
 - **路径别名** `@/*` → `./src/*`（tsconfig paths）。
 - **Default exports** for page components, **named exports** for lib/component utilities。
@@ -113,7 +117,7 @@ Husky `pre-commit` 运行 `lint-staged`（eslint on `*.{ts,tsx}`，prettier --ch
 ## 子站接入 checklist（新增子站时）
 
 1. 在 `app/page.tsx` 的 `PROJECTS` 数组加一项：`{ href, titleKey, descKey, icon }`。
-2. 在 `messages/en-US.json` 与 `messages/zh-CN.json` 的 `home` 命名空间同时加 `titleKey` / `descKey` 两个键（`lint:i18n` 强制双 locale 完整）。
+2. 在 **所有 8 个** `messages/*.json` 的 `home` 命名空间同时加 `titleKey` / `descKey` 两个键（`lint:i18n` 强制全 locale 完整）。
 3. `icon` 从 `lucide-react` 选一个语义匹配的。
 4. 跑 `pnpm lint:i18n && pnpm build` 验证。
 
