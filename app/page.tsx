@@ -33,7 +33,7 @@ const PROJECTS: ProjectEntry[] = [
     icon: Atom,
   },
   {
-    href: "https://together.lernu.cc",
+    href: "https://room.lernu.cc",
     titleKey: "togetherTitle",
     descKey: "togetherDesc",
     icon: Users,
