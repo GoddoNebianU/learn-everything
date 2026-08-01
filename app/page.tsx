@@ -3,13 +3,13 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Card } from "@goddonebianu/design-system/card";
 import { Container } from "@goddonebianu/design-system/container";
 import { Heading } from "@goddonebianu/design-system/heading";
-import { Atom, BookOpen, Music } from "lucide-react";
+import { Atom, BookOpen, Music, Users } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 type ProjectEntry = {
   href: string;
-  titleKey: "languages" | "music" | "sciences";
-  descKey: "languagesDesc" | "musicDesc" | "sciencesDesc";
+  titleKey: "languages" | "music" | "sciences" | "togetherTitle";
+  descKey: "languagesDesc" | "musicDesc" | "sciencesDesc" | "togetherDesc";
   icon: LucideIcon;
 };
 
@@ -31,6 +31,12 @@ const PROJECTS: ProjectEntry[] = [
     titleKey: "sciences",
     descKey: "sciencesDesc",
     icon: Atom,
+  },
+  {
+    href: "https://together.lernu.cc",
+    titleKey: "togetherTitle",
+    descKey: "togetherDesc",
+    icon: Users,
   },
 ];
 

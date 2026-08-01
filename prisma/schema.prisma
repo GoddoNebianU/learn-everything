@@ -1,0 +1,108 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  schemas  = ["auth"]
+}
+
+// ============================================
+// User & Auth (auth schema — owned by learn-everything, the auth host)
+//
+// The four better-auth identity models (User/Session/Account/Verification)
+// mirror the shared dev/prod Postgres `auth` schema. learn-everything owns
+// the auth DDL; every consumer (learn-languages, learn-together) keeps its
+// own mirror in their schema.prisma and must never push auth DDL. Identity
+// columns are diffed by scripts/lint/check-auth-schema-drift.ts.
+//
+// AuthEvent is host-owned audit trail, written by better-auth databaseHooks.
+// ============================================
+
+model User {
+  id              String   @id
+  name            String
+  email           String   @unique
+  emailVerified   Boolean  @default(false)
+  image           String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  username        String   @unique
+  displayUsername String?
+  accounts        Account[]
+  sessions        Session[]
+  authEvents      AuthEvent[]
+
+  @@schema("auth")
+  @@map("user")
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@schema("auth")
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@schema("auth")
+  @@map("account")
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+  @@schema("auth")
+  @@map("verification")
+}
+
+model AuthEvent {
+  id         String   @id @default(cuid())
+  userId     String?
+  action     String
+  entityType String?
+  ip         String?
+  userAgent  String?  @db.Text
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+  @@schema("auth")
+  @@map("authevent")
+}

@@ -6,3 +6,11 @@ dist
 next-env.d.ts
 .sisyphus/
 .vercel
+
+# Prisma
+/generated
+
+# Env (secrets — never commit; .env.example is tracked)
+.env
+.env.production
+.env.local
