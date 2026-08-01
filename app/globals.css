@@ -1,3 +1,10 @@
 @import "tailwindcss";
 @source "../node_modules/@goddonebianu/design-system/src";
 @import "@goddonebianu/design-system/tokens.css";
+
+:root {
+  /* Navbar fixed height (matches NavbarBar h-16 = 4rem) */
+  --navbar-h: 4rem;
+  /* Page main area min height = viewport - navbar, eliminates the bottom gap */
+  --page-min-h: calc(100dvh - var(--navbar-h));
+}

@@ -1,6 +1,5 @@
 {
   "home": {
-    "brand": "Imparare Tutto",
     "title": "Imparare Tutto",
     "subtitle": "Una raccolta di progetti di studio mirati. Scegli un percorso e inizia.",
     "languages": "Imparare le Lingue",
@@ -74,5 +73,15 @@
     "resendVerification": "Invia di nuovo l'email di verifica",
     "resendSuccess": "Email di verifica inviata! Controlla la tua casella di posta.",
     "resendFailed": "Invio dell'email di verifica fallito"
+  },
+  "navbar": {
+    "title": "Imparare Tutto",
+    "sign_in": "Accedi",
+    "profile": "Profilo",
+    "settings": "Impostazioni"
+  },
+  "common": {
+    "openMenu": "Apri menu",
+    "switchLanguage": "Cambia lingua"
   }
 }

@@ -1,6 +1,5 @@
 {
   "home": {
-    "brand": "Alles Lernen",
     "title": "Alles Lernen",
     "subtitle": "Eine Sammlung fokussierter Lernprojekte. Wähle einen Weg und leg los.",
     "languages": "Sprachen Lernen",
@@ -74,5 +73,15 @@
     "resendVerification": "Bestätigungs-E-Mail erneut senden",
     "resendSuccess": "Bestätigungs-E-Mail gesendet! Bitte überprüfe deinen Posteingang.",
     "resendFailed": "Bestätigungs-E-Mail konnte nicht gesendet werden"
+  },
+  "navbar": {
+    "title": "Alles Lernen",
+    "sign_in": "Anmelden",
+    "profile": "Profil",
+    "settings": "Einstellungen"
+  },
+  "common": {
+    "openMenu": "Menü öffnen",
+    "switchLanguage": "Sprache wechseln"
   }
 }

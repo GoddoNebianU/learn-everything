@@ -1,6 +1,5 @@
 {
   "home": {
-    "brand": "Lernu Ĉion",
     "title": "Lernu Ĉion",
     "subtitle": "Aro da fokusitaj lernprojektoj. Elektu vojon kaj komencu lerni.",
     "languages": "Lernu Lingvojn",
@@ -74,5 +73,15 @@
     "resendVerification": "Resendi Konfirman Retleteron",
     "resendSuccess": "Konfirma retletero sendita! Bonvolu kontroli vian enirkeston.",
     "resendFailed": "Malsukcesis sendi konfirman retleteron"
+  },
+  "navbar": {
+    "title": "Lernu Ĉion",
+    "sign_in": "Ensaluti",
+    "profile": "Profilo",
+    "settings": "Agordoj"
+  },
+  "common": {
+    "openMenu": "Malfermi menuon",
+    "switchLanguage": "Ŝanĝi lingvon"
   }
 }

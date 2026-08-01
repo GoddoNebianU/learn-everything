@@ -1,6 +1,5 @@
 {
   "home": {
-    "brand": "Learn Everything",
     "title": "Learn Everything",
     "subtitle": "A hub of focused learning projects. Pick a path and start learning.",
     "languages": "Learn Languages",
@@ -74,5 +73,15 @@
     "resendVerification": "Resend Verification Email",
     "resendSuccess": "Verification email sent! Please check your inbox.",
     "resendFailed": "Failed to send verification email"
+  },
+  "navbar": {
+    "title": "Learn Everything",
+    "sign_in": "Sign In",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "common": {
+    "openMenu": "Open menu",
+    "switchLanguage": "Switch language"
   }
 }

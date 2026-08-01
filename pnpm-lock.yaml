@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@goddonebianu/design-system':
-        specifier: git+https://github.com/GoddoNebianU/design-system.git#main
-        version: https://codeload.github.com/GoddoNebianU/design-system/tar.gz/7673c161c7b1616e7c8e6b192a0d24f3439b005f(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+        specifier: github:GoddoNebianU/design-system#main
+        version: https://codeload.github.com/GoddoNebianU/design-system/tar.gz/5fba56fd74cefdb5b0c5daaffd9970f2ef25f948(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@prisma/adapter-pg':
         specifier: ^7.7.0
         version: 7.9.1
@@ -671,8 +671,8 @@ packages:
   '@formatjs/intl-localematcher@0.8.13':
     resolution: {integrity: sha512-kHEAFOkeJSPNi7c5PaKaRjxcBrJwzzt81ifUu+8uve1EDW/VJl83KsxmqgqNZLzcFEhSliZGvx3+pk/RH0IOmg==}
 
-  '@goddonebianu/design-system@https://codeload.github.com/GoddoNebianU/design-system/tar.gz/7673c161c7b1616e7c8e6b192a0d24f3439b005f':
-    resolution: {tarball: https://codeload.github.com/GoddoNebianU/design-system/tar.gz/7673c161c7b1616e7c8e6b192a0d24f3439b005f}
+  '@goddonebianu/design-system@https://codeload.github.com/GoddoNebianU/design-system/tar.gz/5fba56fd74cefdb5b0c5daaffd9970f2ef25f948':
+    resolution: {tarball: https://codeload.github.com/GoddoNebianU/design-system/tar.gz/5fba56fd74cefdb5b0c5daaffd9970f2ef25f948}
     version: 0.1.0
     peerDependencies:
       react: '>=18'
@@ -5003,7 +5003,7 @@ snapshots:
     dependencies:
       '@formatjs/fast-memoize': 3.1.7
 
-  '@goddonebianu/design-system@https://codeload.github.com/GoddoNebianU/design-system/tar.gz/7673c161c7b1616e7c8e6b192a0d24f3439b005f(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+  '@goddonebianu/design-system@https://codeload.github.com/GoddoNebianU/design-system/tar.gz/5fba56fd74cefdb5b0c5daaffd9970f2ef25f948(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
     dependencies:
       '@radix-ui/react-accordion': 1.2.20(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@radix-ui/react-avatar': 1.2.6(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)

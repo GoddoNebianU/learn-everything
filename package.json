@@ -25,7 +25,7 @@
     "preinstall": "git config --local url.\"https://github.com/GoddoNebianU/design-system\".insteadOf \"git@github.com:GoddoNebianU/design-system\" 2>/dev/null || true"
   },
   "dependencies": {
-    "@goddonebianu/design-system": "git+https://github.com/GoddoNebianU/design-system.git#main",
+    "@goddonebianu/design-system": "github:GoddoNebianU/design-system#main",
     "@prisma/adapter-pg": "^7.7.0",
     "@prisma/client": "^7.7.0",
     "bcryptjs": "^3.0.3",

@@ -1,6 +1,5 @@
 {
   "home": {
-    "brand": "学一切",
     "title": "学一切",
     "subtitle": "一系列专注的学习项目。选一个方向，开始学习。",
     "languages": "学语言",
@@ -74,5 +73,15 @@
     "resendVerification": "重新发送验证邮件",
     "resendSuccess": "验证邮件已发送！请检查您的收件箱。",
     "resendFailed": "发送验证邮件失败"
+  },
+  "navbar": {
+    "title": "学一切",
+    "sign_in": "登录",
+    "profile": "个人资料",
+    "settings": "设置"
+  },
+  "common": {
+    "openMenu": "打开菜单",
+    "switchLanguage": "切换语言"
   }
 }

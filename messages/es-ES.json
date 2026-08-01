@@ -1,6 +1,5 @@
 {
   "home": {
-    "brand": "Aprender Todo",
     "title": "Aprender Todo",
     "subtitle": "Un conjunto de proyectos de aprendizaje enfocados. Elige un camino y empieza.",
     "languages": "Aprender Idiomas",
@@ -74,5 +73,15 @@
     "resendVerification": "Reenviar correo de verificación",
     "resendSuccess": "¡Correo de verificación enviado! Por favor, revisa tu bandeja de entrada.",
     "resendFailed": "Error al enviar el correo de verificación"
+  },
+  "navbar": {
+    "title": "Aprender Todo",
+    "sign_in": "Iniciar sesión",
+    "profile": "Perfil",
+    "settings": "Ajustes"
+  },
+  "common": {
+    "openMenu": "Abrir menú",
+    "switchLanguage": "Cambiar idioma"
   }
 }

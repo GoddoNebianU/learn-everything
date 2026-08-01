@@ -1,5 +1,4 @@
 import { getTranslations } from "next-intl/server";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Card } from "@goddonebianu/design-system/card";
 import { Container } from "@goddonebianu/design-system/container";
 import { Heading } from "@goddonebianu/design-system/heading";
@@ -44,14 +43,7 @@ export default async function HomePage() {
   const t = await getTranslations("home");
 
   return (
-    <div className="min-h-screen bg-background-secondary">
-      <header className="border-b border-border bg-card shadow-sm">
-        <Container size="2xl" padding="sm" className="flex h-14 items-center justify-between">
-          <span className="text-sm font-semibold text-foreground">{t("brand")}</span>
-          <LanguageSwitcher />
-        </Container>
-      </header>
-
+    <div className="min-h-[var(--page-min-h)] bg-background-secondary">
       <Container size="2xl" padding="sm" className="py-16">
         <div className="flex flex-col items-center gap-12">
           <div className="flex flex-col items-center gap-4 text-center">
