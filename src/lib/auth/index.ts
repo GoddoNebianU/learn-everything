@@ -57,7 +57,7 @@ export const auth = betterAuth({
       domain: "lernu.cc",
     },
   },
-  trustedOrigins: ["https://lernu.cc", "https://lang.lernu.cc", "https://together.lernu.cc"],
+  trustedOrigins: ["https://lernu.cc", "https://lang.lernu.cc", "https://room.lernu.cc"],
 
   database: prismaAdapter(prisma, {
     provider: "postgresql",

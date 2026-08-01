@@ -10,7 +10,7 @@
  * This guard opens that one door safely:
  *   - same-origin relative paths (`/decks`, `/profile`) pass through
  *   - absolute URLs whose origin is one of the three trusted lernu.cc
- *     subdomains (lernu.cc / lang.lernu.cc / together.lernu.cc) pass
+ *     subdomains (lernu.cc / lang.lernu.cc / room.lernu.cc) pass
  *     through with their path/query/hash preserved
  *   - everything else (e.g. `https://evil.com`, `//evil.com`, `/\evil.com`,
  *     `javascript:...`) returns null, defeating open-redirect attacks
@@ -22,7 +22,7 @@
 const ALLOWED_SSO_ORIGINS = new Set<string>([
   "https://lernu.cc",
   "https://lang.lernu.cc",
-  "https://together.lernu.cc",
+  "https://room.lernu.cc",
 ]);
 
 /**
